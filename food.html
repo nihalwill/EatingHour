@@ -11,6 +11,7 @@
         margin: 10px;
       }
     </style>
+    <link rel="stylesheet" href="foodStyle.css" />
   </head>
 
   <body>
@@ -61,12 +62,15 @@
             var video = response.meals[0].strYoutube;
             var image = response.meals[0].strMealThumb;
             var imagePic = $("<img>").attr("src", image);
+            imagePic.addClass("foodPic");
             console.log("image:", image);
 
             // Creating an element to have the rating displayed
             var pOne = $("<p>").text("Meal Origin: " + country);
-            var pTwo = $("<p>").text("Meal Video: " + video);
-            var pThree = $("<p>").text("Meal Image: " + imagePic);
+            var pTwo = $("<p>").text("Meal Video: ");
+            var aTag = $("<a>").attr("href", video).text("Recipe Video");
+            pTwo.append(aTag);
+            var pThree = $("<p>").text();
 
             var link = $("<a>");
             link.attr("href", video); //set href
@@ -77,6 +81,7 @@
             foodDiv.append(pOne);
             foodDiv.append(pTwo);
             foodDiv.append(pThree);
+            foodDiv.append(imagePic);
             $("#food-view").prepend(foodDiv);
           });
         }
@@ -110,6 +115,7 @@
         $("#add-food").on("click", function (event) {
           event.preventDefault();
           displayFoodInfo();
+          $("#food-input").val("");
           // This line grabs the input from the textbox
         });
         $("#random-food").on("click", function (event) {
