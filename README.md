@@ -15,4 +15,4 @@ Good Eats Utilzes:
 
 -CSS frameworks:
 
-    -[Materlize](https://materializecss.com/)
+    - [Materlize](https://materializecss.com/)
