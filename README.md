@@ -1,4 +1,4 @@
-Published site: link to published site here
+Published site: [Good Eats](#link_to_site)
 
 # Good Eats - Meal and Beverage Search
 
