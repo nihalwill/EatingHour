@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Searcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./Assets/skeleton.css">
+    <link rel="stylesheet" href="./Assets/skeleton.css">
+    <link rel="stylesheet" href="./Assets/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Assets/materialize.css">
+    <link rel="stylesheet" href="./Assets/materialize.min.css">
+    <style>
+      </style>
+</head>
+<body>
+    <!-- code from w3 to make button centered -->
+    <div class="container">
+        <div class="center">
+            <h1 contenteditable data-heading="Good Eats">Good Eats</h1>
+        </div>
+      </div>
+      <br><br>
+      
+<!-- buttons -->
+
+    <div class="middle">
+      <a href="food.html" class="btn btn1">Food</a>
+      <a href="drinks.html" class="btn btn2">Drinks</a>
+    </div>
+  
+
+    <script>
+        var h1 = document.querySelector("h1");
+
+h1.addEventListener("input", function() {
+    this.setAttribute("data-heading", this.innerText);
+});
+    </script>
+</body>
+</html>
