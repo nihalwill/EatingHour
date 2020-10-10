@@ -2,7 +2,7 @@
 let drinks = [];
 
 function displayDrinkInfo() {
-  let newDrink = $("#drink-input").val().trim();
+  let newDrink = $("#drinks-input").val().trim();
   let queryURL =
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + newDrink;
   console.log("queryURL:", queryURL);
@@ -20,20 +20,18 @@ function displayDrinkInfo() {
     let image = response.drinks[0].strDrinkThumb;
     let imagePic = $("<img>").attr("src", image);
     imagePic.addClass("drinkPic");
-    console.log("image:", image);
+    console.log(instructions);
 
     let pOne = $("<p>").text("Glass Type: " + typeOfGlass);
     let pTwo = $("<p>").text("Instructions: " + instructions);
-    let pThree = $("<p>").text();
 
     drinkDiv.append(pOne);
     drinkDiv.append(pTwo);
-    drinkDiv.append(pThree);
     drinkDiv.append(imagePic);
-    $("#drink-view").prepend(drinkDiv);
+    $("#drinks-view").prepend(drinkDiv);
   });
 }
-function randomdrink() {
+function randomDrink() {
   let queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
   console.log("queryURL:", queryURL);
 
@@ -42,28 +40,36 @@ function randomdrink() {
     method: "GET",
   }).then(function (response) {
     console.log("response:", response);
-    let category = response.drinks[0].strCategory;
-    let rpOne = $("<p>").text("Meal Category: " + category);
+    let typeOfGlass = response.drinks[0].strGlass;
+    let instructions = response.drinks[0].strInstructions;
+    let image = response.drinks[0].strDrinkThumb;
+    let imagePic = $("<img>").attr("src", image);
+    imagePic.addClass("drinkPic");
+    let pOne = $("<p>").text("Glass Type: " + typeOfGlass);
+    let pTwo = $("<p>").text("Instructions: " + instructions);
 
-    let randomdrinkDiv = $("<div class='randomdrink'>");
-    randomdrinkDiv.append(rpOne);
-    $("#drink-view").prepend(randomdrinkDiv);
+    let randomdrinkDiv = $("<div class='random-drinks'>");
+    randomdrinkDiv.append(pOne);
+    randomdrinkDiv.append(pTwo);
+    randomdrinkDiv.append(imagePic);
+    $("#drinks-view").prepend(randomdrinkDiv);
   });
 }
 function cleardrink() {
-  $("#drink-view").empty();
+  $("#drinks-view").empty();
 }
 
-$("#add-drink").on("click", function (event) {
+$("#add-drinks").on("click", function (event) {
+  console.log("test");
   event.preventDefault();
-  displaydrinkInfo();
+  displayDrinkInfo();
   $("#drink-input").val("");
 });
-$("#random-drink").on("click", function (event) {
+$("#random-drinks").on("click", function (event) {
   event.preventDefault();
-  randomdrink();
+  randomDrink();
 });
-$("#cleardrink").on("click", function (event) {
+$("#clear-drinks").on("click", function (event) {
   event.preventDefault();
   cleardrink();
 });
