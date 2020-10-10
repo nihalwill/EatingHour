@@ -6,13 +6,13 @@ This web application allows a user to easily query their favorite meals and beve
 
 ## Application Details
 
-Good Eats Utilzes:
+### Good Eats Utilzes:
 
--Server-side API's:
+- Server-side API's:
 
-    - [The Meal DB] https://www.themealdb.com/api.php
-    - [The Cocktail DB] https://www.thecocktaildb.com/api.php
+  - [The Meal DB](https://www.themealdb.com/api.php)
+  - [The Cocktail DB](https://www.thecocktaildb.com/api.php)
 
--CSS frameworks:
+- CSS frameworks:
 
-    - [Materialize](https://materializecss.com/)
+  - [Materialize](https://materializecss.com/)
