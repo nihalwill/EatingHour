@@ -6,6 +6,7 @@ function displayFoodInfo() {
   var newFood = $("#food-input").val().trim().toUpperCase();
   
   console.log('newFood:', newFood)
+  
   var queryURL =
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + newFood;
   console.log("queryURL:", queryURL);
@@ -18,6 +19,7 @@ function displayFoodInfo() {
     // Creating a div to hold the movie
     var foodDiv = $("<div class='food'>");
     // Storing the rating data
+
     var searchResults = $("<h2>").text("Search Results for: " + newFood);
     var mealName = response.meals[0].strMeal;
     var country = response.meals[0].strArea;
@@ -42,12 +44,14 @@ function displayFoodInfo() {
     var pTwo = $("<p>").text("Meal Video: ");
     var aTagTwo = $("<a>").attr("href", video).text("Recipe Video");
     pTwo.append(aTagTwo);
+
     var pThree = $("<p>").text();
     var link = $("<a>");
     link.attr("href", video); //set href
     link.innerHTML = video; //set text to be seen
     pTwo.append(link); //add to body
     // Displaying the rating
+
     foodDiv.append(searchResults);
     foodDiv.append(name);
     foodDiv.append(pOne);
@@ -59,6 +63,7 @@ function displayFoodInfo() {
     $("#food-view").empty();
 
     $("#food-view").append(foodDiv);
+
   });
 }
 function randomFood() {
@@ -70,6 +75,7 @@ function randomFood() {
     method: "GET",
   }).then(function (response) {
     console.log("response:", response);
+
     var rMealName = response.meals[0].strMeal;
     
     var rCountry = response.meals[0].strArea;
@@ -106,6 +112,7 @@ function randomFood() {
     randomFoodDiv.append(rImagePic);
     $("#food-view").empty();
     $("#food-view").append(randomFoodDiv);
+
   });
 }
 function clearFood() {
