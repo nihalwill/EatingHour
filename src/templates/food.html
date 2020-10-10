@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,19 +12,19 @@
       }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./Assets/skeleton.css">
-    <link rel="stylesheet" href="./Assets/skeleton.css">
-    <link rel="stylesheet" href="./Assets/foodStyle.css">
+    <link rel="stylesheet" href="../styles/skeleton.css">
+    <link rel="stylesheet" href="../styles/skeleton.css">
+    <link rel="stylesheet" href="../styles/foodStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./Assets/materialize.css">
-    <link rel="stylesheet" href="./Assets/materialize.min.css">
+    <link rel="stylesheet" href="../styles/materialize.css">
+    <link rel="stylesheet" href="../styles/materialize.min.css">
   </head>
 
   <body>
     <div id="page-wrap">
     <nav>
     <div class="nav-wrapper">
-      <a href="drinks.html" class="brand-logo">Logo</a>
+      <a href="food.html" class="brand-logo">Logo</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="aboutUs.html">About Us</a></li>
@@ -41,32 +42,32 @@
           
       </div>
                 
-      <h1>Drink Search 🍹</h1>
+      <h1>Food Search 🍽</h1>
       <div class="container">
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
+        Type in any food item to see information or click Random Food 
       </div>
 
       <!-- Rendered Buttons will get Dumped Here  -->
       <div id="buttons-view"></div>
 
-      <form id="drink-form">
-        <label for="drink-input">Search for a Drink</label>
-        <input type="text" id="drinks-input" placeholder="Enter Drink Here" />
+      <form id="food-form">
+        <label for="food-input">Search for a Food</label>
+        <input type="text" id="food-input" placeholder="Enter Food Here" />
         <br />
 
-        <!-- Button triggers new drink to be added -->
-        <a href="food.html" class="btn btn-outline-success" role="button" aria-pressed="true">🡄 Back</a> 
-        <input class='button' id="add-drinks" type="submit" value="Get info" />
-        <button class='button' id="random-drinks">Random drinks</button>
-        <button  class='button'id="clear-drinks">Clear drinks</button>
-        <a href="index.html" class="btn btn-outline-success" role="button" aria-pressed="true">Next 🡆</a> 
+        <!-- Button triggers new movie to be added -->
+        <input class='button' id="add-food" type="submit" value="Get info" />
+        <button class='button' id="random-food">Random Food</button>
+        <button  class='button'id="clear-food">Clear Food</button>
+        <a href="drinks.html" class="btn btn-outline-success" role="button" aria-pressed="true">Next 🡆</a> 
       </form>
 
-      <div id="drinks-view"></div>
+      <!-- Movies will Get Dumped Here -->
+      <div id="food-view"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="drinks.js"></script>
+    <script src="../scripts/food.js"></script>
     </body>
 </html>
