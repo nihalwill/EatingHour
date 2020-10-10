@@ -1,37 +1,31 @@
 // Initial array of drinks
-var drinks = [];
-// displayMovieInfo function re-renders the HTML to display the appropriate content
+let drinks = [];
+
 function displayDrinkInfo() {
-  var newDrink = $("#drink-input").val().trim();
-  var queryURL =
+  let newDrink = $("#drink-input").val().trim();
+  let queryURL =
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + newDrink;
   console.log("queryURL:", queryURL);
-  // Creating an AJAX call for the specific movie button being clicked
+
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     console.log("response:", response);
-    // Creating a div to hold the movie
-    var drinkDiv = $("<div class='drink'>");
-    // Storing the rating data
-    var country = response.drinks[0].strArea;
-    var video = response.drinks[0].strYoutube;
-    var image = response.drinks[0].strMealThumb;
-    var imagePic = $("<img>").attr("src", image);
+
+    const drinkDiv = $("<div class='drink'>");
+
+    let typeOfGlass = response.drinks[0].strGlass;
+    let instructions = response.drinks[0].strInstructions;
+    let image = response.drinks[0].strDrinkThumb;
+    let imagePic = $("<img>").attr("src", image);
     imagePic.addClass("drinkPic");
     console.log("image:", image);
-    // Creating an element to have the rating displayed
-    var pOne = $("<p>").text("Drink Origin: " + country);
-    var pTwo = $("<p>").text("Drink Video: ");
-    var aTag = $("<a>").attr("href", video).text("Recipe Video");
-    pTwo.append(aTag);
-    var pThree = $("<p>").text();
-    var link = $("<a>");
-    link.attr("href", video); //set href
-    link.innerHTML = video; //set text to be seen
-    pTwo.append(link); //add to body
-    // Displaying the rating
+
+    let pOne = $("<p>").text("Glass Type: " + typeOfGlass);
+    let pTwo = $("<p>").text("Instructions: " + instructions);
+    let pThree = $("<p>").text();
+
     drinkDiv.append(pOne);
     drinkDiv.append(pTwo);
     drinkDiv.append(pThree);
@@ -40,18 +34,18 @@ function displayDrinkInfo() {
   });
 }
 function randomdrink() {
-  var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+  let queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
   console.log("queryURL:", queryURL);
-  // Creating an AJAX call for the specific movie button being clicked
+
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     console.log("response:", response);
-    var category = response.drinks[0].strCategory;
-    var rpOne = $("<p>").text("Meal Category: " + category);
-    // Creating a div to hold the movie
-    var randomdrinkDiv = $("<div class='randomdrink'>");
+    let category = response.drinks[0].strCategory;
+    let rpOne = $("<p>").text("Meal Category: " + category);
+
+    let randomdrinkDiv = $("<div class='randomdrink'>");
     randomdrinkDiv.append(rpOne);
     $("#drink-view").prepend(randomdrinkDiv);
   });
@@ -59,20 +53,17 @@ function randomdrink() {
 function cleardrink() {
   $("#drink-view").empty();
 }
-// This function handles events where a movie button is clicked
+
 $("#add-drink").on("click", function (event) {
   event.preventDefault();
   displaydrinkInfo();
   $("#drink-input").val("");
-  // This line grabs the input from the textbox
 });
 $("#random-drink").on("click", function (event) {
   event.preventDefault();
   randomdrink();
-  // This line grabs the input from the textbox
 });
 $("#cleardrink").on("click", function (event) {
   event.preventDefault();
   cleardrink();
-  // This line grabs the input from the textbox
 });
