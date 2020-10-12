@@ -9,7 +9,9 @@ $(document).ready(function () {
       event.preventDefault();
       let newDrink = $("#drinks-input").val().trim();
       let response = getDrinkInfo(apiURLs.newDrink, newDrink);
-      displayDrinkInfo(response);
+      if (newDrink) {
+        displayDrinkInfo(response);
+      } else null;
     } else if (event.target.id === "random-drinks") {
       event.preventDefault();
       let response = getDrinkInfo(apiURLs.randomDrink, "");
@@ -40,10 +42,32 @@ $(document).ready(function () {
 
       let glassElement = $("<p>").text(`Glass Type:  ${typeOfGlass}`);
       let instructionsElement = $("<p>").text(`Instructions:  ${instructions}`);
+      let ingredientList = [
+        $("<p>").text(`Ingredients:  ${ingredientsCycle()}`),
+      ];
 
-      drinkDiv.append(glassElement);
-      drinkDiv.append(instructionsElement);
-      drinkDiv.append(imageElement);
+      let elementValues = [
+        [glassElement],
+        ingredientList,
+        [instructionsElement],
+        [imageElement],
+      ];
+
+      function ingredientsCycle() {
+        let ingredients = "";
+        for (let i = 1; i <= 15; i++) {
+          if (response.drinks[0][`strIngredient${i}`]) {
+            ingredients = `${ingredients} ${
+              response.drinks[0][`strIngredient${i}`]
+            },`;
+          } else break;
+        }
+        return ingredients.slice(0, -1);
+      }
+
+      elementValues.forEach((element) => {
+        drinkDiv.append(element);
+      });
       $("#drinks-view").prepend(drinkDiv);
     });
   }
