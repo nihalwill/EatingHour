@@ -1,8 +1,7 @@
+import config from "./config.js";
+
 $(document).ready(function () {
-  const apiURLs = {
-    newDrink: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=",
-    randomDrink: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
-  };
+  const apiURLs = config;
 
   //event listener for buttons
   $("#drink-form").on("click", (event) => {
