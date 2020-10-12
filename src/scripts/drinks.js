@@ -1,75 +1,74 @@
-// Initial array of drinks
-let drinks = [];
+import config from "./config.js";
 
-function displayDrinkInfo() {
-  let newDrink = $("#drinks-input").val().trim();
-  let queryURL =
-    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + newDrink;
-  console.log("queryURL:", queryURL);
+$(document).ready(function () {
+  const apiURLs = config;
 
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log("response:", response);
-
-    const drinkDiv = $("<div class='drink'>");
-
-    let typeOfGlass = response.drinks[0].strGlass;
-    let instructions = response.drinks[0].strInstructions;
-    let image = response.drinks[0].strDrinkThumb;
-    let imagePic = $("<img>").attr("src", image);
-    imagePic.addClass("drinkPic");
-    console.log(instructions);
-
-    let pOne = $("<p>").text("Glass Type: " + typeOfGlass);
-    let pTwo = $("<p>").text("Instructions: " + instructions);
-
-    drinkDiv.append(pOne);
-    drinkDiv.append(pTwo);
-    drinkDiv.append(imagePic);
-    $("#drinks-view").prepend(drinkDiv);
+  //event listener for buttons
+  $("#drink-form").on("click", (event) => {
+    if (event.target.id === "add-drinks") {
+      event.preventDefault();
+      let newDrink = $("#drinks-input").val().trim();
+      let response = getDrinkInfo(apiURLs.newDrink, newDrink);
+      if (newDrink) {
+        displayDrinkInfo(response);
+      } else null;
+    } else if (event.target.id === "random-drinks") {
+      event.preventDefault();
+      let response = getDrinkInfo(apiURLs.randomDrink, "");
+      displayDrinkInfo(response);
+    } else if (event.target.id === "clear-drinks") {
+      event.preventDefault();
+      $("#drinks-view").empty();
+    }
   });
-}
-function randomDrink() {
-  let queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-  console.log("queryURL:", queryURL);
 
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log("response:", response);
-    let typeOfGlass = response.drinks[0].strGlass;
-    let instructions = response.drinks[0].strInstructions;
-    let image = response.drinks[0].strDrinkThumb;
-    let imagePic = $("<img>").attr("src", image);
-    imagePic.addClass("drinkPic");
-    let pOne = $("<p>").text("Glass Type: " + typeOfGlass);
-    let pTwo = $("<p>").text("Instructions: " + instructions);
+  //server calls based on user input
+  async function getDrinkInfo(apiURL, userInput) {
+    let queryURL = apiURL + userInput;
+    let result = await $.ajax({ url: queryURL, method: "GET" });
+    return result;
+  }
 
-    let randomdrinkDiv = $("<div class='random-drinks'>");
-    randomdrinkDiv.append(pOne);
-    randomdrinkDiv.append(pTwo);
-    randomdrinkDiv.append(imagePic);
-    $("#drinks-view").prepend(randomdrinkDiv);
-  });
-}
-function cleardrink() {
-  $("#drinks-view").empty();
-}
+  //renders JSON response on page
+  function displayDrinkInfo(response) {
+    Promise.resolve(response).then((response) => {
+      const drinkDiv = $("<div class='drink'>");
 
-$("#add-drinks").on("click", function (event) {
-  console.log("test");
-  event.preventDefault();
-  displayDrinkInfo();
-  $("#drink-input").val("");
-});
-$("#random-drinks").on("click", function (event) {
-  event.preventDefault();
-  randomDrink();
-});
-$("#clear-drinks").on("click", function (event) {
-  event.preventDefault();
-  cleardrink();
+      let typeOfGlass = response.drinks[0].strGlass;
+      let instructions = response.drinks[0].strInstructions;
+      let image = response.drinks[0].strDrinkThumb;
+      let imageElement = $("<img>").attr("src", image);
+      imageElement.addClass("drinkPic");
+
+      let glassElement = $("<p>").text(`Glass Type:  ${typeOfGlass}`);
+      let instructionsElement = $("<p>").text(`Instructions:  ${instructions}`);
+      let ingredientList = [
+        $("<p>").text(`Ingredients:  ${ingredientsCycle()}`),
+      ];
+
+      let elementValues = [
+        [glassElement],
+        ingredientList,
+        [instructionsElement],
+        [imageElement],
+      ];
+
+      function ingredientsCycle() {
+        let ingredients = "";
+        for (let i = 1; i <= 15; i++) {
+          if (response.drinks[0][`strIngredient${i}`]) {
+            ingredients = `${ingredients} ${
+              response.drinks[0][`strIngredient${i}`]
+            },`;
+          } else break;
+        }
+        return ingredients.slice(0, -1);
+      }
+
+      elementValues.forEach((element) => {
+        drinkDiv.append(element);
+      });
+      $("#drinks-view").prepend(drinkDiv);
+    });
+  }
 });
