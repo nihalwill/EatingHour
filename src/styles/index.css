@@ -64,7 +64,7 @@ height: 90%;
 }
 .parallax {
   /* The image used */
-  background-image: url("../assests/shutterstock_302530970.pdf");
+  background-image: url("../assests/image1.jpg");
 
   /* Set a specific height */
   min-height: 400px; 
