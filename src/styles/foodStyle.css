@@ -34,7 +34,12 @@
     padding: 0 20px;
     text-align: center;
   }
-
+  #background {
+    background-image: url("../assests/image3.jpg");');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
   /* css test */
   
   
