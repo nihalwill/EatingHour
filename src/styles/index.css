@@ -1,231 +1,77 @@
-html {
-    font: 5vmin/1.3 Serif;
-    overflow: hidden;
-    background: #123;
-  }
-  
-  body,
-  head {
-    display: block;
-    font-size: 52px;
-    color: transparent;
-  }
-  
-  head::before,
-  head::after,
-  body::before,
-  body::after {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 3em;
-    height: 3em;
-    content: ".";
-    mix-blend-mode: screen;
-    animation: 44s -27s move infinite ease-in-out alternate;
-  }
-  
-  body::before {
-    text-shadow: -0.034644978em 1.5793861362em 7px rgba(255, 217, 0, 0.9), -0.3624301952em -0.2750533423em 7px rgba(0, 255, 135, 0.9), 1.8387743525em 0.3797247683em 7px rgba(147, 255, 0, 0.9), 2.4880085921em 0.8813804471em 7px rgba(0, 64, 255, 0.9), -0.3259816574em 0.889792956em 7px rgba(0, 255, 122, 0.9), 1.9708344244em 0.8237697286em 7px rgba(255, 0, 53, 0.9), 1.9795819249em -0.0197101373em 7px rgba(255, 0, 191, 0.9), 1.2884922237em 0.3669909057em 7px rgba(0, 255, 245, 0.9), -0.4809969878em 2.1075908536em 7px rgba(24, 0, 255, 0.9), 2.4206426831em -0.2199305435em 7px rgba(242, 0, 255, 0.9), 0.0279092478em -0.2586411976em 7px rgba(0, 167, 255, 0.9), 1.8465651666em 0.1227412474em 7px rgba(0, 255, 41, 0.9), 0.3319027496em -0.149358558em 7px rgba(255, 210, 0, 0.9), -0.354470274em -0.4542576262em 7px rgba(0, 242, 255, 0.9), 1.9817396157em -0.183896517em 7px rgba(132, 255, 0, 0.9), -0.3008123472em 1.1084622333em 7px rgba(0, 255, 113, 0.9), 0.4478103479em 0.1421180676em 7px rgba(0, 255, 200, 0.9), 1.0376949138em 0.9574261018em 7px rgba(0, 201, 255, 0.9), 2.3080060582em -0.264115414em 7px rgba(0, 255, 22, 0.9), 0.5113902924em 0.082405658em 7px rgba(255, 160, 0, 0.9), 2.393828964em -0.0577165754em 7px rgba(255, 236, 0, 0.9), 0.5960457136em 1.6923428238em 7px rgba(255, 13, 0, 0.9), 0.029508498em 1.3096914585em 7px rgba(249, 255, 0, 0.9), 0.719662635em 0.2304573849em 7px rgba(255, 0, 228, 0.9), 1.4170749311em 1.3792427481em 7px rgba(142, 0, 255, 0.9), 0.4549559456em 0.1235408512em 7px rgba(255, 254, 0, 0.9), -0.3351862063em 0.9671796096em 7px rgba(255, 0, 180, 0.9), 0.2382597274em 2.0230050716em 7px rgba(255, 0, 44, 0.9), 1.7656588116em 0.7643795249em 7px rgba(29, 255, 0, 0.9), 2.1189628502em 0.6365452959em 7px rgba(0, 255, 1, 0.9), -0.0685634779em -0.0629499262em 7px rgba(62, 255, 0, 0.9), 2.082792755em 2.0003875134em 7px rgba(0, 13, 255, 0.9), 0.2049098431em 1.971397216em 7px rgba(0, 255, 65, 0.9), 0.446591875em 1.8852861922em 7px rgba(255, 251, 0, 0.9), -0.0174860888em 1.5228851266em 7px rgba(255, 28, 0, 0.9), 1.8128993968em 2.4432823906em 7px rgba(255, 48, 0, 0.9), 0.9774397134em 1.8676924207em 7px rgba(230, 255, 0, 0.9), 1.4016073639em 2.1934574002em 7px rgba(255, 0, 146, 0.9), 0.9974417618em 2.1977639849em 7px rgba(159, 255, 0, 0.9), 1.0569033617em 1.0160162932em 7px rgba(91, 0, 255, 0.9), 0.3691690426em 1.3368947022em 7px rgba(255, 0, 111, 0.9);
-    animation-duration: 44s;
-    animation-delay: -27s;
-  }
-  
-  body::after {
-    text-shadow: 1.0407132092em 1.6428804838em 7px rgba(0, 255, 169, 0.9), 1.7196440139em -0.3856171146em 7px rgba(45, 255, 0, 0.9), 0.4007963732em 0.7573566189em 7px rgba(0, 71, 255, 0.9), 0.7997263684em -0.0497491932em 7px rgba(255, 0, 49, 0.9), 1.6350593724em 1.4118001447em 7px rgba(0, 255, 161, 0.9), 1.1937476911em 0.8741095389em 7px rgba(0, 255, 128, 0.9), 1.895822555em 1.0326640864em 7px rgba(0, 102, 255, 0.9), 0.1354729644em 2.3177288769em 7px rgba(176, 255, 0, 0.9), 1.3229426077em -0.3099903795em 7px rgba(133, 255, 0, 0.9), 1.9963820176em 0.4774229908em 7px rgba(77, 255, 0, 0.9), 0.0793088306em -0.1781060316em 7px rgba(16, 0, 255, 0.9), 1.8879516688em 2.0109881576em 7px rgba(255, 0, 37, 0.9), 2.2612621144em 1.5789478197em 7px rgba(201, 255, 0, 0.9), 0.4774328029em 0.1108123566em 7px rgba(255, 0, 165, 0.9), -0.4571573245em 2.072372446em 7px rgba(197, 0, 255, 0.9), 0.3048939964em -0.1786294971em 7px rgba(37, 0, 255, 0.9), 0.5244606171em 0.1119324358em 7px rgba(255, 0, 173, 0.9), 0.7686601786em -0.1730570598em 7px rgba(0, 160, 255, 0.9), -0.169088238em 2.0906926339em 7px rgba(255, 46, 0, 0.9), -0.1525011895em 0.0535397847em 7px rgba(0, 255, 116, 0.9), 0.2335277091em 1.5364075715em 7px rgba(0, 78, 255, 0.9), 1.620306463em 1.4534885574em 7px rgba(240, 255, 0, 0.9), 1.3118598619em 0.7464787055em 7px rgba(255, 0, 190, 0.9), 0.0853792949em 0.7342533632em 7px rgba(191, 255, 0, 0.9), 0.4987039754em 1.8682619417em 7px rgba(255, 21, 0, 0.9), 0.0245832221em 1.537510035em 7px rgba(255, 138, 0, 0.9), -0.4406722947em 0.2130198501em 7px rgba(234, 255, 0, 0.9), 2.3375070828em 2.4018338081em 7px rgba(0, 255, 10, 0.9), 1.3611751023em 2.3045534047em 7px rgba(96, 0, 255, 0.9), 2.2741096321em 1.1371129853em 7px rgba(1, 0, 255, 0.9), 2.0344360243em 1.9891447674em 7px rgba(0, 227, 255, 0.9), -0.4262837068em -0.0175512944em 7px rgba(236, 255, 0, 0.9), 1.5700113547em 1.7484269193em 7px rgba(0, 21, 255, 0.9), 2.0732605748em -0.1577696476em 7px rgba(255, 144, 0, 0.9), 2.364638632em 0.2663793774em 7px rgba(53, 0, 255, 0.9), 0.9790381676em 1.7558317704em 7px rgba(70, 255, 0, 0.9), 0.8369014984em 1.5689191891em 7px rgba(255, 238, 0, 0.9), 1.9747432266em 2.4653577594em 7px rgba(255, 82, 0, 0.9), 0.4520906032em 0.8845989691em 7px rgba(146, 0, 255, 0.9), 0.3660855955em 0.9237175453em 7px rgba(255, 0, 160, 0.9), -0.0186990779em 0.1001651139em 7px rgba(255, 106, 0, 0.9);
-    animation-duration: 43s;
-    animation-delay: -32s;
-  }
-  
-  head::before {
-    text-shadow: -0.2794491856em -0.0800628549em 7px rgba(0, 255, 80, 0.9), 0.7417221297em 0.1273333742em 7px rgba(214, 0, 255, 0.9), 0.0355550521em 0.0171322576em 7px rgba(255, 0, 1, 0.9), 1.2127075577em 2.1632711267em 7px rgba(38, 255, 0, 0.9), -0.3522435477em 2.1501193932em 7px rgba(152, 0, 255, 0.9), 0.8684487318em 1.1815002801em 7px rgba(0, 109, 255, 0.9), 1.4148518737em 0.1420538444em 7px rgba(71, 0, 255, 0.9), 1.2712040845em 0.959312797em 7px rgba(255, 172, 0, 0.9), 1.1686880985em 0.0872097032em 7px rgba(0, 199, 255, 0.9), 0.5833668998em 1.7075568555em 7px rgba(255, 0, 158, 0.9), 0.3099689099em 1.2928308955em 7px rgba(255, 229, 0, 0.9), 0.0637202842em -0.2308648959em 7px rgba(255, 0, 16, 0.9), 1.1118849376em 0.7518287628em 7px rgba(255, 0, 124, 0.9), -0.4311719346em 0.2723177885em 7px rgba(0, 255, 219, 0.9), 0.4360707022em 0.3121546292em 7px rgba(255, 154, 0, 0.9), 1.5318172637em 2.4484953749em 7px rgba(255, 0, 160, 0.9), 1.9088705883em 0.4835609278em 7px rgba(255, 0, 240, 0.9), 2.4385800991em 0.6787221009em 7px rgba(102, 255, 0, 0.9), 1.2736561014em 0.9388683509em 7px rgba(0, 255, 76, 0.9), 0.2982727414em 0.450987789em 7px rgba(26, 255, 0, 0.9), 1.3357632104em 1.3337232432em 7px rgba(0, 255, 20, 0.9), 0.0498978261em 1.6208623161em 7px rgba(255, 93, 0, 0.9), 1.3595659718em 1.961253802em 7px rgba(255, 78, 0, 0.9), 1.6481877315em 1.6678567509em 7px rgba(0, 255, 210, 0.9), 1.5786328117em 1.1413545106em 7px rgba(255, 12, 0, 0.9), 0.9592363507em 1.6217650241em 7px rgba(0, 253, 255, 0.9), 2.0931934806em -0.0202522691em 7px rgba(255, 106, 0, 0.9), 1.4783102163em 0.6410179994em 7px rgba(150, 0, 255, 0.9), 2.1438637723em 0.3865379462em 7px rgba(255, 0, 160, 0.9), 0.3337845458em 2.286008999em 7px rgba(254, 255, 0, 0.9), 1.1165564187em 1.5057214197em 7px rgba(5, 255, 0, 0.9), 1.4435628153em -0.3472885238em 7px rgba(0, 183, 255, 0.9), 0.554370371em 0.9294677771em 7px rgba(84, 0, 255, 0.9), 1.2180578136em 2.0368243482em 7px rgba(0, 255, 198, 0.9), 0.7255593028em -0.1240823583em 7px rgba(27, 255, 0, 0.9), 0.143302381em 0.0871538594em 7px rgba(133, 255, 0, 0.9), 1.6296537362em 2.4219287236em 7px rgba(255, 125, 0, 0.9), 0.906614559em 2.1712949316em 7px rgba(195, 0, 255, 0.9), 2.4653172582em 0.9036601288em 7px rgba(0, 255, 2, 0.9), 0.523168003em 0.4956181819em 7px rgba(0, 255, 85, 0.9), -0.0820406698em 0.3604110678em 7px rgba(0, 223, 255, 0.9);
-    animation-duration: 42s;
-    animation-delay: -23s;
-  }
-  
-  head::after {
-    text-shadow: 1.24722371em 2.4931771744em 7px rgba(255, 119, 0, 0.9), 2.0226202677em 1.6361092155em 7px rgba(61, 255, 0, 0.9), 2.1672624238em -0.0460574028em 7px rgba(255, 223, 0, 0.9), 0.4370355389em 1.7025816525em 7px rgba(227, 0, 255, 0.9), -0.410891026em 1.8290858467em 7px rgba(0, 120, 255, 0.9), 0.2115779386em -0.3966891018em 7px rgba(255, 0, 115, 0.9), 1.8624997522em 0.7445913103em 7px rgba(255, 180, 0, 0.9), 1.9367328477em 0.5637939138em 7px rgba(0, 70, 255, 0.9), -0.3048442971em 1.1837059114em 7px rgba(0, 214, 255, 0.9), -0.4917570992em 0.7684043027em 7px rgba(255, 0, 82, 0.9), 1.5279253664em -0.0269272587em 7px rgba(204, 255, 0, 0.9), 0.9712810692em 0.0585016237em 7px rgba(255, 36, 0, 0.9), 1.6607874769em 2.1625683126em 7px rgba(139, 255, 0, 0.9), 2.2158407209em 1.414875533em 7px rgba(0, 106, 255, 0.9), 0.0587521636em 0.850263789em 7px rgba(255, 0, 119, 0.9), 0.3985906399em 2.1697776168em 7px rgba(156, 0, 255, 0.9), 0.6219195639em -0.357977866em 7px rgba(255, 69, 0, 0.9), -0.4198154082em 0.9339482273em 7px rgba(255, 0, 43, 0.9), 1.3008520947em 1.5654651368em 7px rgba(255, 0, 176, 0.9), 2.2110125888em 2.0385045446em 7px rgba(255, 0, 157, 0.9), 2.2223859188em 0.314534794em 7px rgba(55, 0, 255, 0.9), 0.9564809217em 2.1997846722em 7px rgba(0, 255, 239, 0.9), 1.9150966848em 0.704839604em 7px rgba(0, 255, 103, 0.9), 0.7840160984em 0.3781601374em 7px rgba(255, 0, 169, 0.9), -0.1751401522em 2.4381109408em 7px rgba(255, 0, 73, 0.9), 2.0759550312em 1.2449045223em 7px rgba(136, 255, 0, 0.9), 0.2755920483em 1.4991334737em 7px rgba(96, 0, 255, 0.9), 1.6472363242em -0.3267879052em 7px rgba(149, 255, 0, 0.9), 0.8229038619em 0.8838861576em 7px rgba(0, 255, 176, 0.9), 0.8730790744em 0.8750780549em 7px rgba(255, 149, 0, 0.9), -0.0960932948em 1.7241415277em 7px rgba(255, 150, 0, 0.9), 0.6570043639em 1.1988631884em 7px rgba(0, 255, 31, 0.9), 2.4383977029em -0.4322530109em 7px rgba(255, 16, 0, 0.9), 1.6428167073em 0.67502573em 7px rgba(0, 128, 255, 0.9), 2.0572513991em 0.1153951379em 7px rgba(91, 255, 0, 0.9), 0.1591658099em 1.8956683171em 7px rgba(109, 255, 0, 0.9), 1.7896458414em 0.3536042465em 7px rgba(189, 0, 255, 0.9), 1.6995673647em -0.2095735083em 7px rgba(20, 255, 0, 0.9), 2.2479496355em 0.101481819em 7px rgba(0, 53, 255, 0.9), 1.6447824853em -0.0506783964em 7px rgba(43, 0, 255, 0.9), 2.442909483em 2.1230389958em 7px rgba(0, 112, 255, 0.9);
-    animation-duration: 41s;
-    animation-delay: -19s;
-  }
-  
-  html::before {
-    letter-spacing: 0.5em;
-    text-shadow: 0 0 5px #000;
-    white-space: pre;
-    color: #fff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #999;
-  }
-  
-  html:first-line {
-    font-size: 300%;
-    font-style: italic;
-    letter-spacing: 0;
-    color: #fff;
-  }
-  
-  @keyframes move {
-    from {
-      transform: rotate(0deg) scale(12) translateX(-20px);
-    }
-    to {
-      transform: rotate(360deg) scale(18) translateX(20px);
-    }
-  }
-  /* to center button */
-.container {
-  height: 200px;
-  position: relative;
-}
-
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-/* font test */
-html,
-body {
-  
-  width: 100%;
-  height: 100%;
-}
-
-h1 {
-  font-family: 'CoreCircus', sans-serif;
-  text-transform: uppercase;
-  font-size: 10vw;
+* {
   text-align: center;
-  line-height: 1;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  position: absolute;
-  color: #61c0c8;
-  text-shadow: 1px 0px 0px #67c2c5, 0px 1px 0px #67c2c5, 2px 1px 0px #67c2c5, 1px 2px 0px #67c2c5, 3px 2px 0px #67c2c5, 2px 3px 0px #67c2c5, 4px 3px 0px #67c2c5, 3px 4px 0px #67c2c5, 5px 4px 0px #67c2c5, 4px 5px 0px #67c2c5, 6px 5px 0px #67c2c5, 5px 6px 0px #67c2c5, 7px 6px 0px #67c2c5, 6px 7px 0px #67c2c5, 8px 7px 0px #aff1f9, 7px 8px 0px #aff1f9, 9px 8px 0px #aff1f9, 8px 9px 0px #aff1f9, 10px 9px 0px #aff1f9, 9px 10px 0px #aff1f9, 11px 10px 0px #aff1f9, 10px 11px 0px #aff1f9;
+  font-family: 'Raleway', sans-serif;
+  color: whitesmoke;
+  text-shadow: black
+  
 }
-h1:before, h1:after {
-  content: attr(data-heading);
-  position: absolute;
-  overflow: hidden;
-  left: 0;
-  top: 0;
+p {
+  font-size: 30px;
 }
-h1:before {
-  color: white;
+h1 {
+  text-align: center;
   width: 100%;
-  z-index: 5;
-  font-family: 'CoreCircus2DIn';
-  font-weight: normal;
+  margin: 0px auto;
+  color: #fff;
+  font-size: 80px;
+  letter-spacing: 5px;
+  top: 50%;
+  margin-top: -40px;
+  text-shadow: -1px -1px 0px black, 3px 3px 0px black, 6px 6px 0px black;
+
 }
-h1:after {
-  z-index: -1;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -3px 3px 2px #6c9d9e, -5px 5px 2px #6c9d9e, -7px 7px 2px #6c9d9e, -8px 8px 2px #6c9d9e, -9px 9px 2px #6c9d9e, -11px 11px 2px #6c9d9e;
+#smallerText {
+  font-size: 15px;
+}
+.btn {
+  border: none;
+  background-color: inherit;
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
 }
 
-/*
- * Webfont: CoreCircus by S-Core
- * URL: http://www.myfonts.com/fonts/s-core/core-circus/regular/
- * Copyright: Copyright (c) 2013 by S-Core Co., Ltd.. All rights reserved.
- * Licensed pageviews: 10,000
-*
- * Webfont: CoreCircus2DIn by S-Core
- * URL: http://www.myfonts.com/fonts/s-core/core-circus/in/
- * Copyright: Copyright (c) 2013 by S-Core Co., Ltd.. All rights reserved.
- * Licensed pageviews: 10,000
-*/
-@font-face {
-  font-family: 'CoreCircus2DIn';
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.eot");
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.ttf") format("truetype");
+.btn:hover {
+    color: black;
 }
-@font-face {
-  font-family: 'CoreCircus';
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.eot");
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.ttf") format("truetype");
-}
-/* buttons  */
-body{
-    margin: 0;
-    padding: 0;
-    background: #2d3436;
+.success {
+    color:white;
   }
-  .middle{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  .btn{
-    position: relative;
-    display: block;
+.info {
     color: white;
-    font-size: 14px;
-    font-family: "montserrat";
-    text-decoration: none;
-    margin: 30px 0;
-    border: 2px solid #ff7675;
-    padding: 14px 60px;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: 1s all ease;
   }
-  .btn::before{
-    background: #ff7675;
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: -1;
-    transition: all 0.6s ease;
-  }
-  
-  .btn1::before{
-    width: 0%;
-    height: 100%;
-  }
-  
-  .btn1:hover::before{
-    width: 100%;
-  }
-  
-  
-  .btn2::before{
-    width: 100%;
-    height: 0%;
-  }
-  .btn2:hover::before{
-    height: 100%;
-  }
-  
-  .btn3::before{
-    width: 100%;
-    height: 0%;
-    transform: translate(-50%,-50%) rotate(45deg);
-  }
-  .btn3:hover::before{
-    height: 380%;
-  }
-  
-  .btn4::before{
-    width: 100%;
-    height: 0%;
-    transform: translate(-50%,-50%) rotate(-45deg);
-  }
-  .btn4:hover::before{
-    height: 380%;
-  }
-  
+#header {
+  background-color:rgba(255, 80, 80, 0.938);
+  border-radius: 15px;
+  margin-right: 20%;
+  margin-left: 20%;
+  box-shadow: 10px 10px powderblue;
+  width: auto;
+height: 90%;
+  padding: 80px;
+  box-shadow: 10px 10px 5px grey;
+}
+#options {
+  background-color:rgba(235, 130, 44, 0.952);
+  border-radius: 4px;
+  margin-right: 3%;
+  margin-left: 3%;
+  box-shadow: 10px 10px powderblue;
+  width: auto;
+/* height: 90%; */
+  padding: 80px;
+  box-shadow: 10px 10px 5px grey;
+}
+.parallax {
+  /* The image used */
+  background-image: url("../assests/image1.jpg");
+
+  /* Set a specific height */
+  min-height: 400px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
