@@ -181,7 +181,3 @@ $("#clearfood").on("click", function (event) {
   // This line grabs the input from the textbox
 });
 
-
-
-
-
