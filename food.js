@@ -2,11 +2,8 @@
 var food = [];
 // displayMovieInfo function re-renders the HTML to display the appropriate content
 function displayFoodInfo() {
-
   var newFood = $("#food-input").val().trim().toUpperCase();
-  
-  console.log('newFood:', newFood)
-  
+  console.log("newFood:", newFood);
   var queryURL =
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + newFood;
   console.log("queryURL:", queryURL);
@@ -18,52 +15,84 @@ function displayFoodInfo() {
     console.log("response:", response);
     // Creating a div to hold the movie
     var foodDiv = $("<div class='food'>");
-    // Storing the rating data
+    if (newFood) {
+      // Storing the rating data
+      var searchResults = $("<h2>").text("Search Results for: " + newFood);
+      var mealName = response.meals[0].strMeal;
+      var country = response.meals[0].strArea;
+      var instructions = response.meals[0].strInstructions;
+      var recipe = response.meals[0].strSource;
+      var video = response.meals[0].strYoutube;
+      var image = response.meals[0].strMealThumb;
+      var ingredientList = [
+        $("<p>").text(`Ingredients:  ${ingredientsCycle()}`),
+      ];
 
-    var searchResults = $("<h2>").text("Search Results for: " + newFood);
-    var mealName = response.meals[0].strMeal;
-    var country = response.meals[0].strArea;
-    var instructions = response.meals[0].strInstructions;
-    var recipe = response.meals[0].strSource;
-    var video = response.meals[0].strYoutube;
-    var image = response.meals[0].strMealThumb;
-    
-    var imagePic = $("<img>").attr("src", image);
-    imagePic.addClass("foodPic");
-    console.log("image:", image);
+      function ingredientsCycle() {
+        let ingredients = "";
+        for (let i = 1; i <= 15; i++) {
+          if (response.meals[0][`strIngredient${i}`]) {
+            ingredients = `${ingredients} ${
+              response.meals[0][`strIngredient${i}`]
+            },`;
+          } else break;
+        }
+        return ingredients.slice(0, -1);
+      }
 
-   
-   
-    // Creating an element to have the rating displayed
-    var name =  $("<h4>").text("Meal: " + mealName);
-    var pOne = $("<p>").text("Meal Origin: " + country);
-    var pOneHalf = $("<p>").text("Instructions: " + instructions);
-    var pOneThree = $("<p>").text("For the full Recipe: " );
-    var aTagOne = $("<a>").attr("href", recipe).text("Click Here");
-    pOneThree.append(aTagOne);
-    var pTwo = $("<p>").text("Meal Video: ");
-    var aTagTwo = $("<a>").attr("href", video).text("Recipe Video");
-    pTwo.append(aTagTwo);
+       ingredientList.forEach((element) => {
+        foodDiv.append(element);
+      });
+      
 
-    var pThree = $("<p>").text();
-    var link = $("<a>");
-    link.attr("href", video); //set href
-    link.innerHTML = video; //set text to be seen
-    pTwo.append(link); //add to body
-    // Displaying the rating
 
-    foodDiv.append(searchResults);
-    foodDiv.append(name);
-    foodDiv.append(pOne);
-    foodDiv.append(pOneHalf);
-    foodDiv.append(pOneThree);
-    foodDiv.append(pTwo);
-    foodDiv.append(pThree);
-    foodDiv.append(imagePic);
-    $("#food-view").empty();
 
-    $("#food-view").append(foodDiv);
 
+      var imagePic = $("<img>").attr("src", image);
+      imagePic.addClass("foodPic");
+      console.log("image:", image);
+      // Creating an element to have the rating displayed
+      var name = $("<h4>").text("Meal: " + mealName);
+      var pOne = $("<p>").text("Meal Origin: " + country);
+      var pOneHalf = $("<p>").text("Instructions: " + instructions);
+      var pOneThree = $("<p>").text("For the full Recipe: ");
+      var aTagOne = $("<a>").attr("href", recipe).text("Click Here");
+      pOneThree.append(aTagOne);
+      var pTwo = $("<p>").text("Meal Video: ");
+      var aTagTwo = $("<a>").attr("href", video).text("Recipe Video");
+      pTwo.append(aTagTwo);
+      var pThree = $("<p>").text();
+      var link = $("<a>");
+      link.attr("href", video); //set href
+      link.innerHTML = video; //set text to be seen
+      pTwo.append(link); //add to body
+      // Displaying the rating
+      foodDiv.append(searchResults);
+      foodDiv.append(name);
+      foodDiv.append(pOne);
+      function ingredientsCycle() {
+        let ingredients = "";
+        for (let i = 1; i <= 15; i++) {
+          if (response.meals[0][`strIngredient${i}`]) {
+            ingredients = `${ingredients} ${
+              response.meals[0][`strIngredient${i}`]
+            },`;
+          } else break;
+        }
+        return ingredients.slice(0, -1);
+      }
+
+       ingredientList.forEach((element) => {
+        foodDiv.append(element);
+      });
+      foodDiv.append(pOneHalf);
+      foodDiv.append(pOneThree);
+      foodDiv.append(pTwo);
+      foodDiv.append(pThree);
+      foodDiv.append(imagePic);
+      $("#food-view").empty();
+      $("#food-view").append(foodDiv);
+    } else null;
   });
 }
 function randomFood() {
@@ -75,20 +104,27 @@ function randomFood() {
     method: "GET",
   }).then(function (response) {
     console.log("response:", response);
-
     var rMealName = response.meals[0].strMeal;
-    
     var rCountry = response.meals[0].strArea;
     var rInstructions = response.meals[0].strInstructions;
     var rRecipe = response.meals[0].strSource;
     var rVideo = response.meals[0].strYoutube;
     var rImage = response.meals[0].strMealThumb;
+    var rIngredientList = [
+      $("<p>").text(`Ingredients:  ${rIngredientsCycle()}`),
+    ];
+
+    
+
+
+
+
 
     var rImagePic = $("<img>").attr("src", rImage);
     rImagePic.addClass("foodPic");
     console.log("image:", rImage);
-    var rName =  $("<h4>").text("Meal: " + rMealName);
-    console.log('rName:', rName)
+    var rName = $("<h4>").text("Meal: " + rMealName);
+    console.log("rName:", rName);
     var rrpOne = $("<p>").text("Meal Origin: " + rCountry);
     var rrpTwo = $("<p>").text("Meal Instructions: " + rInstructions);
     var rrpThree = $("<p>").text("For the full recipe: ");
@@ -97,22 +133,31 @@ function randomFood() {
     var rrpFour = $("<p>").text("Meal Video: ");
     var aTagFour = $("<a>").attr("href", rVideo).text("Recipe Video");
     rrpFour.append(aTagFour);
-
-
-
-
-    
     // Creating a div to hold the movie
     var randomFoodDiv = $("<div class='randomFood'>");
     randomFoodDiv.append(rName);
     randomFoodDiv.append(rrpOne);
+    function rIngredientsCycle() {
+      let ingredients = "";
+      for (let i = 1; i <= 15; i++) {
+        if (response.meals[0][`strIngredient${i}`]) {
+          ingredients = `${ingredients} ${
+            response.meals[0][`strIngredient${i}`]
+          },`;
+        } else break;
+      }
+      return ingredients.slice(0, -1);
+    }
+
+     rIngredientList.forEach((element) => {
+      randomFoodDiv.append(element);
+    });
     randomFoodDiv.append(rrpTwo);
     randomFoodDiv.append(rrpThree);
     randomFoodDiv.append(rrpFour);
     randomFoodDiv.append(rImagePic);
     $("#food-view").empty();
     $("#food-view").append(randomFoodDiv);
-
   });
 }
 function clearFood() {
@@ -135,3 +180,8 @@ $("#clearfood").on("click", function (event) {
   clearFood();
   // This line grabs the input from the textbox
 });
+
+
+
+
+
