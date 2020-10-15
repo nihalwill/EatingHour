@@ -1,25 +1,27 @@
-import config from "./config.js";
-
 $(document).ready(function () {
-  const apiURLs = config;
+  const apiURLs = {
+    newDrink: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=",
+    randomDrink: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
+  };
 
   //event listener for buttons
-  $("#drink-form").on("click", (event) => {
-    if (event.target.id === "add-drinks") {
-      event.preventDefault();
-      let newDrink = $("#drinks-input").val().trim();
-      let response = getDrinkInfo(apiURLs.newDrink, newDrink);
-      if (newDrink) {
-        displayDrinkInfo(response);
-      } else null;
-    } else if (event.target.id === "random-drinks") {
-      event.preventDefault();
-      let response = getDrinkInfo(apiURLs.randomDrink, "");
+  $("#add-drinks").on("click", (event) => {
+    event.preventDefault();
+    let newDrink = $("#drinks-input").val().trim();
+    let response = getDrinkInfo(apiURLs.newDrink, newDrink);
+    if (newDrink) {
       displayDrinkInfo(response);
-    } else if (event.target.id === "clear-drinks") {
-      event.preventDefault();
-      $("#drinks-view").empty();
-    }
+    } else null;
+  });
+
+  $("#random-drinks").on("click", (event) => {
+    event.preventDefault();
+    let response = getDrinkInfo(apiURLs.randomDrink, "");
+    displayDrinkInfo(response);
+  });
+  $("#clear-drinks").on("click", (event) => {
+    event.preventDefault();
+    $("#drinks-view").empty();
   });
 
   //server calls based on user input
