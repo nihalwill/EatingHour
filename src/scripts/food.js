@@ -53,23 +53,23 @@ function displayFoodInfo() {
       console.log("image:", image);
       // Creating an element to have the rating displayed
       var name = $("<h4>").text("Meal: " + mealName);
-      var pOne = $("<p>").text("Meal Origin: " + country);
-      var pOneHalf = $("<p>").text("Instructions: " + instructions);
-      var pOneThree = $("<p>").text("For the full Recipe: ");
-      var aTagOne = $("<a>").attr("href", recipe).text("Click Here");
-      pOneThree.append(aTagOne);
-      var pTwo = $("<p>").text("Meal Video: ");
-      var aTagTwo = $("<a>").attr("href", video).text("Recipe Video");
-      pTwo.append(aTagTwo);
-      var pThree = $("<p>").text();
+      var countryLine = $("<p>").text("Meal Origin: " + country);
+      var instructionsLine = $("<p>").text("Instructions: " + instructions);
+      var fullRecipeLine = $("<p>").text("For the full Recipe: ");
+      var fullRecipeLink = $("<a>").attr("href", recipe).text("Click Here");
+      fullRecipeLine.append(fullRecipeLink);
+      var mealVideoLine = $("<p>").text("Meal Video: ");
+      var mealVideoLink = $("<a>").attr("href", video).text("Recipe Video");
+      mealVideoLine.append(mealVideoLink);
+      var recipeLinkText = $("<p>").text();
       var link = $("<a>");
       link.attr("href", video); //set href
       link.innerHTML = video; //set text to be seen
-      pTwo.append(link); //add to body
+      mealVideoLine.append(link); //add to body
       // Displaying the rating
       foodDiv.append(searchResults);
       foodDiv.append(name);
-      foodDiv.append(pOne);
+      foodDiv.append(countryLine);
       function ingredientsCycle() {
         let ingredients = "";
         for (let i = 1; i <= 15; i++) {
@@ -85,10 +85,10 @@ function displayFoodInfo() {
        ingredientList.forEach((element) => {
         foodDiv.append(element);
       });
-      foodDiv.append(pOneHalf);
-      foodDiv.append(pOneThree);
-      foodDiv.append(pTwo);
-      foodDiv.append(pThree);
+      foodDiv.append(instructionsLine);
+      foodDiv.append(fullRecipeLine);
+      foodDiv.append(mealVideoLine);
+      foodDiv.append(recipeLinkText);
       foodDiv.append(imagePic);
       $("#food-view").empty();
       $("#food-view").append(foodDiv);
@@ -125,18 +125,19 @@ function randomFood() {
     console.log("image:", rImage);
     var rName = $("<h4>").text("Meal: " + rMealName);
     console.log("rName:", rName);
-    var rrpOne = $("<p>").text("Meal Origin: " + rCountry);
-    var rrpTwo = $("<p>").text("Meal Instructions: " + rInstructions);
-    var rrpThree = $("<p>").text("For the full recipe: ");
-    var aTagThree = $("<a>").attr("href", rRecipe).text("Click Here");
-    rrpThree.append(aTagThree);
-    var rrpFour = $("<p>").text("Meal Video: ");
-    var aTagFour = $("<a>").attr("href", rVideo).text("Recipe Video");
-    rrpFour.append(aTagFour);
+    var rOriginLine = $("<p>").text("Meal Origin: " + rCountry);
+    var rInstructionsLine = $("<p>").text("Meal Instructions: " + rInstructions);
+    var rInstructionsLinkText = $("<p>").text("For the full recipe: ");
+    var rInstructionsLink = $("<a>").attr("href", rRecipe).text("Click Here");
+    
+    rInstructionsLinkText.append(rInstructionsLink);
+    var rMealVideoLine = $("<p>").text("Meal Video: ");
+    var rMealVideoLink = $("<a>").attr("href", rVideo).text("Recipe Video");
+    rMealVideoLine.append(rMealVideoLink);
     // Creating a div to hold the movie
     var randomFoodDiv = $("<div class='randomFood'>");
     randomFoodDiv.append(rName);
-    randomFoodDiv.append(rrpOne);
+    randomFoodDiv.append(rOriginLine);
     function rIngredientsCycle() {
       let ingredients = "";
       for (let i = 1; i <= 15; i++) {
@@ -152,9 +153,9 @@ function randomFood() {
      rIngredientList.forEach((element) => {
       randomFoodDiv.append(element);
     });
-    randomFoodDiv.append(rrpTwo);
-    randomFoodDiv.append(rrpThree);
-    randomFoodDiv.append(rrpFour);
+    randomFoodDiv.append(rInstructionsLine);
+    randomFoodDiv.append(rInstructionsLinkText);
+    randomFoodDiv.append(rMealVideoLine);
     randomFoodDiv.append(rImagePic);
     $("#food-view").empty();
     $("#food-view").append(randomFoodDiv);
@@ -173,8 +174,10 @@ $("#add-food").on("click", function (event) {
 $("#random-food").on("click", function (event) {
   event.preventDefault();
   randomFood();
+  
   // This line grabs the input from the textbox
 });
+
 $("#clearfood").on("click", function (event) {
   event.preventDefault();
   clearFood();
