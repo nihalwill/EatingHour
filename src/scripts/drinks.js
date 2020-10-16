@@ -73,4 +73,7 @@ $(document).ready(function () {
       $("#drinks-view").prepend(drinkDiv);
     });
   }
+  $(document).ready(function () {
+    $(".sidenav").sidenav();
+  });
 });
