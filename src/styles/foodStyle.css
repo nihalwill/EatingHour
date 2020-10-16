@@ -1,45 +1,45 @@
-*{
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
+* {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
 }
 
 .foodPic {
-    height: 300px;
-    width: 300px;
-  }
-  /* css from skeleton */
-  .button {
-    display: inline-block;
-    height: 38px;
-    padding: 0 30px;
-    color: #555;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 38px;
-    letter-spacing: .1rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: transparent;
-    border-radius: 4px;
-    border: 1px solid #bbb;
-    cursor: pointer;
-    box-sizing: border-box; 
-  }
-   /* trying to get full page centered  */
-  #page-wrap {
-    width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-  }
-  #background {
-    background-image: url("../assests/image3.jpg");');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  }
-  /* css test */
-  
-  
+  height: 300px;
+  width: 300px;
+}
+/* css from skeleton */
+.button {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+/* trying to get full page centered  */
+#page-wrap {
+  width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+#background {
+  background-image: url("../assests/image3.jpg");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed;
+    background-position: center; */
+}
+#drinkDisplay {
+  height: 60%;
+}
