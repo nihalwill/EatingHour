@@ -1,32 +1,16 @@
+
 * {
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Shadows Into Light", cursive;
+  font-size: large;
   color: whitesmoke;
   text-shadow: black
   
-}
-p {
-  font-size: 30px;
-}
-h1 {
-  text-align: center;
-  width: 100%;
-  margin: 0px auto;
-  color: #fff;
-  font-size: 80px;
-  letter-spacing: 5px;
-  top: 50%;
-  margin-top: -40px;
-  text-shadow: -1px -1px 0px black, 3px 3px 0px black, 6px 6px 0px black;
-
-}
-#smallerText {
-  font-size: 15px;
+  
 }
 .btn {
   border: none;
   background-color: inherit;
-  font-size: 30px;
+  font-size: 30%;
   cursor: pointer;
   display: inline-block;
 }
@@ -41,33 +25,64 @@ h1 {
     color: white;
   }
 #header {
+  text-align: center;
   background-color:rgba(255, 80, 80, 0.938);
+  border-radius: 15px;
+  margin-right: 10%;
+  margin-left: 10%;
+  box-shadow: 10px 10px 5px grey;
+  height: 150px;
+  width: 40%
+  top: 5px
+  }
+#headerText {
+  text-align: center;
+  color: #fff;
+  font-size: 330%;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px black, 3px 3px 0px black, 6px 6px 0px black;
+ max-height: 100px;
+  left: 0%; 
+}
+.middle {
+  text-align: center;
+  background-color:rgba(17, 190, 11, 0.938);
   border-radius: 15px;
   margin-right: 20%;
   margin-left: 20%;
-  box-shadow: 10px 10px powderblue;
-  width: auto;
-height: 90%;
-  padding: 80px;
   box-shadow: 10px 10px 5px grey;
+  width: 40%
+  height: 70%
+
+}
+#middleText {
+  font-size: 110%;
+  padding: 10%;
 }
 #options {
+  text-align: center;
   background-color:rgba(235, 130, 44, 0.952);
-  border-radius: 4px;
-  margin-right: 3%;
-  margin-left: 3%;
-  box-shadow: 10px 10px powderblue;
+  border-radius: 15px;
+  margin-right: 7%;
+  margin-left: 7%;
   width: auto;
-/* height: 90%; */
-  padding: 80px;
+  max-height: 200%;
+  height: 300%;
+  padding: 10px;
   box-shadow: 10px 10px 5px grey;
+font-size: 180%;
+position: relative;
 }
+
 .parallax {
-  /* The image used */
+  
   background-image: url("../assests/image1.jpg");
+  
 
   /* Set a specific height */
-  min-height: 400px; 
+  min-height: 300px;
+  max-height: 300px;
+
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
