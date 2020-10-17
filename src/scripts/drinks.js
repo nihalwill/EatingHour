@@ -42,6 +42,7 @@ $(document).ready(function () {
       let image = response.drinks[0].strDrinkThumb;
       let imageElement = $("<img>").attr("src", image);
       imageElement.addClass("drinkPic");
+      imageElement.addClass("responsive");
 
       let nameElement = $("<p>").text(`Drink Name:  ${drinkName}`);
       let glassElement = $("<p>").text(`Glass Type:  ${typeOfGlass}`);

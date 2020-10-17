@@ -37,11 +37,11 @@
 #background {
   background-image: url("../assests/image3.jpg");
   background-repeat: no-repeat;
-  /* background-attachment: fixed;
-    background-position: center; */
 }
-#drinkDisplay {
-  height: 60%;
+
+.responsive {
+  width: 100%;
+  height: auto;
 }
 
 @media only screen and (max-width: 470px) {
