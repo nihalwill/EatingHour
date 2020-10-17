@@ -37,15 +37,26 @@
 #background {
   background-image: url("../assests/image3.jpg");
   background-repeat: no-repeat;
-  /* background-attachment: fixed;
-    background-position: center; */
 }
-#drinkDisplay {
-  height: 60%;
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+#drinkContentView {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
 }
 
 @media only screen and (max-width: 470px) {
   nav .brand-logo {
     white-space: nowrap;
+  }
+  #drinkContentView {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
   }
 }

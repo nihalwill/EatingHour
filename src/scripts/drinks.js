@@ -22,6 +22,7 @@ $(document).ready(function () {
   $("#clear-drinks").on("click", (event) => {
     event.preventDefault();
     $("#drinks-view").empty();
+    $("#imageTitleView").empty();
   });
 
   //server calls based on user input
@@ -42,6 +43,7 @@ $(document).ready(function () {
       let image = response.drinks[0].strDrinkThumb;
       let imageElement = $("<img>").attr("src", image);
       imageElement.addClass("drinkPic");
+      imageElement.addClass("responsive");
 
       let nameElement = $("<p>").text(`Drink Name:  ${drinkName}`);
       let glassElement = $("<p>").text(`Glass Type:  ${typeOfGlass}`);
@@ -51,13 +53,13 @@ $(document).ready(function () {
       ];
 
       let elementValues = [
-        [nameElement],
         [glassElement],
         ingredientList,
         [instructionsElement],
-        [imageElement],
       ];
 
+      $("#drinks-view").empty();
+      $("#imageTitleView").empty();
       function ingredientsCycle() {
         let ingredients = "";
         for (let i = 1; i <= 15; i++) {
@@ -74,6 +76,8 @@ $(document).ready(function () {
         drinkDiv.append(element);
       });
       $("#drinks-view").prepend(drinkDiv);
+      $("#imageTitleView").append(nameElement);
+      $("#imageTitleView").append(imageElement);
     });
   }
   $(document).ready(function () {
