@@ -43,6 +43,12 @@
 #drinkDisplay {
   height: 60%;
 }
-.nav-wrapper {
-  margin-top: 0;
+
+@media only screen and (max-width: 470px) {
+  nav .brand-logo {
+    white-space: nowrap;
+    /* position: relative;
+    display: block;
+    text-align: center; */
+  }
 }
