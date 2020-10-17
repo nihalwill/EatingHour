@@ -36,12 +36,14 @@ $(document).ready(function () {
     Promise.resolve(response).then((response) => {
       const drinkDiv = $("<div class='drink'>");
 
+      let drinkName = response.drinks[0].strDrink;
       let typeOfGlass = response.drinks[0].strGlass;
       let instructions = response.drinks[0].strInstructions;
       let image = response.drinks[0].strDrinkThumb;
       let imageElement = $("<img>").attr("src", image);
       imageElement.addClass("drinkPic");
 
+      let nameElement = $("<p>").text(`Drink Name:  ${drinkName}`);
       let glassElement = $("<p>").text(`Glass Type:  ${typeOfGlass}`);
       let instructionsElement = $("<p>").text(`Instructions:  ${instructions}`);
       let ingredientList = [
@@ -49,6 +51,7 @@ $(document).ready(function () {
       ];
 
       let elementValues = [
+        [nameElement],
         [glassElement],
         ingredientList,
         [instructionsElement],
