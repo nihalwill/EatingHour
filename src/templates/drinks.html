@@ -21,39 +21,36 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="../styles/skeleton.css" />
-    <link rel="stylesheet" href="../styles/skeleton.css" />
     <link rel="stylesheet" href="../styles/foodStyle.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles/materialize.css" />
-    <link rel="stylesheet" href="../styles/materialize.min.css" />
   </head>
 
-  <body id="background">
-    <div id="page-wrap">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="../../index.html" class="brand-logo center"
-            >The Eating Hour</a
-          >
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="material-icons">menu</i></a
-          >
-          <ul class="left hide-on-med-and-down">
-            <li><a href="food.html">Food</a></li>
-            <li class="active"><a href="drinks.html">Drinks</a></li>
-            <li><a href="aboutUs.html">About Us</a></li>
-          </ul>
-        </div>
-      </nav>
+  <body>
+    <!-- <div id="page-wrap"> -->
+    <div id="background">
+    <nav>
+      <div class="nav-wrapper clearfix">
+        <a href="../../index.html" class="brand-logo center">The Eating Hour</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="left hide-on-med-and-down">
+          <li><a href="food.html">Food</a></li>
+          <li class="active"><a href="drinks.html">Drinks</a></li>
+          <li><a href="aboutUs.html">About Us</a></li>
+        </ul>
+      </div>
       <ul class="sidenav" id="mobile-demo">
         <li><a href="food.html">Food</a></li>
         <li class="active"><a href="drinks.html">Drinks</a></li>
         <li><a href="aboutUs.html">About Us</a></li>
       </ul>
-    </div>
+    </nav>
+    <!-- </div> -->
 
     <main class="container-fluid">
       <h1>Drink Search 🍹</h1>
@@ -64,6 +61,7 @@
       <label for="drink-input">Search for a Drink</label>
       <input type="text" id="drinks-input" placeholder="Enter Drink Here" />
       <br />
+    </div>
 
       <div id="drinkDisplay" style="background-color: white">
         <form>
@@ -85,7 +83,7 @@
             <button class="button" id="random-drinks">Random drinks</button>
             <button class="button" id="clear-drinks">Clear drinks</button>
           </div>
-          <div style="background-color: white" id="drinks-view"></div>
+          <div id="drinks-view"></div>
         </form>
       </div>
     </main>

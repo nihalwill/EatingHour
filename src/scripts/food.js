@@ -1,22 +1,17 @@
-// Initial array of food
 var food = [];
-// displayMovieInfo function re-renders the HTML to display the appropriate content
 function displayFoodInfo() {
   var newFood = $("#food-input").val().trim().toUpperCase();
   console.log("newFood:", newFood);
   var queryURL =
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + newFood;
   console.log("queryURL:", queryURL);
-  // Creating an AJAX call for the specific movie button being clicked
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     console.log("response:", response);
-    // Creating a div to hold the movie
     var foodDiv = $("<div class='food'>");
     if (newFood) {
-      // Storing the rating data
       var searchResults = $("<h2>").text("Search Results for: " + newFood);
       var mealName = response.meals[0].strMeal;
       var country = response.meals[0].strArea;
@@ -40,36 +35,36 @@ function displayFoodInfo() {
         return ingredients.slice(0, -1);
       }
 
-       ingredientList.forEach((element) => {
+      ingredientList.forEach((element) => {
         foodDiv.append(element);
       });
-      
-
-
-
 
       var imagePic = $("<img>").attr("src", image);
       imagePic.addClass("foodPic");
       console.log("image:", image);
-      // Creating an element to have the rating displayed
       var name = $("<h4>").text("Meal: " + mealName);
-      var pOne = $("<p>").text("Meal Origin: " + country);
-      var pOneHalf = $("<p>").text("Instructions: " + instructions);
-      var pOneThree = $("<p>").text("For the full Recipe: ");
-      var aTagOne = $("<a>").attr("href", recipe).text("Click Here");
-      pOneThree.append(aTagOne);
-      var pTwo = $("<p>").text("Meal Video: ");
-      var aTagTwo = $("<a>").attr("href", video).text("Recipe Video");
-      pTwo.append(aTagTwo);
-      var pThree = $("<p>").text();
+      var countryLine = $("<p>").text("Meal Origin: " + country);
+      var instructionsLine = $("<p>").text("Instructions: " + instructions);
+      var fullRecipeLine = $("<p>").text("For the full Recipe: ");
+      var fullRecipeLink = $("<a>")
+        .attr("href", recipe)
+        .attr("target", "_blank")
+        .text("Click Here");
+      fullRecipeLine.append(fullRecipeLink);
+      var mealVideoLine = $("<p>").text("Meal Video: ");
+      var mealVideoLink = $("<a>")
+        .attr("href", video)
+        .attr("target", "_blank")
+        .text("Recipe Video");
+      mealVideoLine.append(mealVideoLink);
+      var recipeLinkText = $("<p>").text();
       var link = $("<a>");
-      link.attr("href", video); //set href
-      link.innerHTML = video; //set text to be seen
-      pTwo.append(link); //add to body
-      // Displaying the rating
+      link.attr("href", video);
+      link.innerHTML = video;
+      mealVideoLine.append(link);
       foodDiv.append(searchResults);
       foodDiv.append(name);
-      foodDiv.append(pOne);
+      foodDiv.append(countryLine);
       function ingredientsCycle() {
         let ingredients = "";
         for (let i = 1; i <= 15; i++) {
@@ -82,13 +77,13 @@ function displayFoodInfo() {
         return ingredients.slice(0, -1);
       }
 
-       ingredientList.forEach((element) => {
+      ingredientList.forEach((element) => {
         foodDiv.append(element);
       });
-      foodDiv.append(pOneHalf);
-      foodDiv.append(pOneThree);
-      foodDiv.append(pTwo);
-      foodDiv.append(pThree);
+      foodDiv.append(instructionsLine);
+      foodDiv.append(fullRecipeLine);
+      foodDiv.append(mealVideoLine);
+      foodDiv.append(recipeLinkText);
       foodDiv.append(imagePic);
       $("#food-view").empty();
       $("#food-view").append(foodDiv);
@@ -98,7 +93,6 @@ function displayFoodInfo() {
 function randomFood() {
   var queryURL = "https://www.themealdb.com/api/json/v1/1/random.php";
   console.log("queryURL:", queryURL);
-  // Creating an AJAX call for the specific movie button being clicked
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -114,29 +108,29 @@ function randomFood() {
       $("<p>").text(`Ingredients:  ${rIngredientsCycle()}`),
     ];
 
-    
-
-
-
-
-
     var rImagePic = $("<img>").attr("src", rImage);
     rImagePic.addClass("foodPic");
     console.log("image:", rImage);
     var rName = $("<h4>").text("Meal: " + rMealName);
     console.log("rName:", rName);
-    var rrpOne = $("<p>").text("Meal Origin: " + rCountry);
-    var rrpTwo = $("<p>").text("Meal Instructions: " + rInstructions);
-    var rrpThree = $("<p>").text("For the full recipe: ");
-    var aTagThree = $("<a>").attr("href", rRecipe).text("Click Here");
-    rrpThree.append(aTagThree);
-    var rrpFour = $("<p>").text("Meal Video: ");
-    var aTagFour = $("<a>").attr("href", rVideo).text("Recipe Video");
-    rrpFour.append(aTagFour);
-    // Creating a div to hold the movie
+    var rOriginLine = $("<p>").text("Meal Origin: " + rCountry);
+    var rInstructionsLine = $("<p>").text(
+      "Meal Instructions: " + rInstructions
+    );
+    var rInstructionsLinkText = $("<p>").text("For the full recipe: ");
+    var rInstructionsLink = $("<a>")
+      .attr("href", rRecipe)
+      .attr("target", "_blank")
+      .text("Click Here");
+
+    rInstructionsLinkText.append(rInstructionsLink);
+    var rMealVideoLine = $("<p>").text("Meal Video: ");
+    var rMealVideoLink = $("<a>").attr("href", rVideo).text("Recipe Video");
+    rMealVideoLink.attr("target", "_blank");
+    rMealVideoLine.append(rMealVideoLink);
     var randomFoodDiv = $("<div class='randomFood'>");
     randomFoodDiv.append(rName);
-    randomFoodDiv.append(rrpOne);
+    randomFoodDiv.append(rOriginLine);
     function rIngredientsCycle() {
       let ingredients = "";
       for (let i = 1; i <= 15; i++) {
@@ -149,12 +143,12 @@ function randomFood() {
       return ingredients.slice(0, -1);
     }
 
-     rIngredientList.forEach((element) => {
+    rIngredientList.forEach((element) => {
       randomFoodDiv.append(element);
     });
-    randomFoodDiv.append(rrpTwo);
-    randomFoodDiv.append(rrpThree);
-    randomFoodDiv.append(rrpFour);
+    randomFoodDiv.append(rInstructionsLine);
+    randomFoodDiv.append(rInstructionsLinkText);
+    randomFoodDiv.append(rMealVideoLine);
     randomFoodDiv.append(rImagePic);
     $("#food-view").empty();
     $("#food-view").append(randomFoodDiv);
@@ -163,21 +157,21 @@ function randomFood() {
 function clearFood() {
   $("#food-view").empty();
 }
-// This function handles events where a movie button is clicked
 $("#add-food").on("click", function (event) {
   event.preventDefault();
   displayFoodInfo();
   $("#food-input").val("");
-  // This line grabs the input from the textbox
 });
 $("#random-food").on("click", function (event) {
   event.preventDefault();
   randomFood();
-  // This line grabs the input from the textbox
 });
+
 $("#clearfood").on("click", function (event) {
   event.preventDefault();
   clearFood();
-  // This line grabs the input from the textbox
 });
 
+$(document).ready(function () {
+  $(".sidenav").sidenav();
+});
