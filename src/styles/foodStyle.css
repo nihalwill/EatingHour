@@ -47,8 +47,5 @@
 @media only screen and (max-width: 470px) {
   nav .brand-logo {
     white-space: nowrap;
-    /* position: relative;
-    display: block;
-    text-align: center; */
   }
 }
