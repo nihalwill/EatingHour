@@ -7,6 +7,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="../src/normalize.css" />
     <link rel="stylesheet" href="../src/skeleton.css" />
@@ -25,14 +29,22 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper clearfix">
         <a href="../../index.html" class="brand-logo center">The Eating Hour</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
         <ul class="left hide-on-med-and-down">
           <li><a href="food.html">Food</a></li>
-          <li><a href="drinks.html">Drinks</a></li>
-          <li class="active"><a href="aboutUs.html">About Us</a></li>
+          <li class="active"><a href="drinks.html">Drinks</a></li>
+          <li><a href="aboutUs.html">About Us</a></li>
         </ul>
       </div>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="food.html">Food</a></li>
+        <li class="active"><a href="drinks.html">Drinks</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+      </ul>
     </nav>
     <div class="row">
       <div class="col s12">
@@ -86,6 +98,8 @@
         </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <script src="../scripts/aboutus.js" type="text/javascript"></script>
   </body>
 </html>
