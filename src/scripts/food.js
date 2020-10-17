@@ -50,10 +50,10 @@ function displayFoodInfo() {
       var countryLine = $("<p>").text("Meal Origin: " + country);
       var instructionsLine = $("<p>").text("Instructions: " + instructions);
       var fullRecipeLine = $("<p>").text("For the full Recipe: ");
-      var fullRecipeLink = $("<a>").attr("href", recipe).text("Click Here");
+      var fullRecipeLink = $("<a>").attr("href", recipe).attr("target","_blank").text("Click Here");
       fullRecipeLine.append(fullRecipeLink);
       var mealVideoLine = $("<p>").text("Meal Video: ");
-      var mealVideoLink = $("<a>").attr("href", video).text("Recipe Video");
+      var mealVideoLink = $("<a>").attr("href", video).attr("target","_blank").text("Recipe Video");
       mealVideoLine.append(mealVideoLink);
       var recipeLinkText = $("<p>").text();
       var link = $("<a>");
@@ -120,11 +120,12 @@ function randomFood() {
     var rOriginLine = $("<p>").text("Meal Origin: " + rCountry);
     var rInstructionsLine = $("<p>").text("Meal Instructions: " + rInstructions);
     var rInstructionsLinkText = $("<p>").text("For the full recipe: ");
-    var rInstructionsLink = $("<a>").attr("href", rRecipe).text("Click Here");
+    var rInstructionsLink = $("<a>").attr("href", rRecipe).attr("target","_blank").text("Click Here");
     
     rInstructionsLinkText.append(rInstructionsLink);
     var rMealVideoLine = $("<p>").text("Meal Video: ");
     var rMealVideoLink = $("<a>").attr("href", rVideo).text("Recipe Video");
+    rMealVideoLink.attr("target","_blank");
     rMealVideoLine.append(rMealVideoLink);
     var randomFoodDiv = $("<div class='randomFood'>");
     randomFoodDiv.append(rName);
